@@ -250,7 +250,7 @@ if selected_customer_option:
 	st.subheader("Explation of Prediction")
 	st.markdown(explanation)
 
-	email = generate_email(avg_prob, input_dict, selected_customer['Surname'])
+	email = generate_email(avg_prob, input_dict, explanation, selected_customer['Surname'])
 
 	st.markdown("---")
 	st.subheader("Personalized Email to Keep Client")

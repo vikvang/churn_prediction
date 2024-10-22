@@ -5,6 +5,7 @@ import numpy as np
 from dotenv import load_dotenv
 import os
 from openai import OpenAI
+import utils as ut
 
 load_dotenv()
 pplx_api_key = os.getenv('PERPLEXITY_API_KEY')
@@ -61,10 +62,20 @@ def make_predictions(input_df, input_dict):
 	}
 
 	avg_prob = np.mean(list(probs.values()))
-	st.markdown("### Model Probabilites")
-	for model, prob in probs.items():
-		st.write(f'{model} {prob}')
-	st.write(f'Average Probability: {avg_prob}')
+	# st.markdown("### Model Probabilites")
+	# for model, prob in probs.items():
+	# 	st.write(f'{model} {prob}')
+	# st.write(f'Average Probability: {avg_prob}')
+
+	col1, col2 = st.columns(2)
+
+	with col1:
+		fig = ut.create_gauge_chart(avg_prob)
+		st.plotly_chart(fig, use_container_width=True)
+		st.write(f'The customer has a {avg_prob:.2%} probability of churning.')
+	with col2:
+		fig_probs = ut.create_model_probability_chart(probs)
+		st.plotly_chart(fig_probs, use_container_width=True)
 
 	return avg_prob
 

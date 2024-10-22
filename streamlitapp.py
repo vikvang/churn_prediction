@@ -116,7 +116,7 @@ def explain_prediction(probability, input_dict, surname):
 	print("EXPLANATION PROMPT", prompt)
 
 	raw_response = client.chat.completions.create(
-		model="llama-3.1-sonar-small-128k-online",
+		model="llama-3.1-70b-instruct",
 		messages=[{
 				"role": "user",
 				"content": prompt
@@ -209,3 +209,8 @@ if selected_customer_option:
 										 tenure, balance, num_products, has_credit_card, is_active_member, estimated_salary)
 	avg_prob = make_predictions(input_df, input_dict)
 
+	explanation = explain_prediction(avg_prob, input_dict, selected_customer['Surname'])
+
+	st.markdown("---")
+	st.subheader("Explation of Prediction")
+	st.markdown(explanation)

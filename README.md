@@ -1,4 +1,4 @@
-# Project Title
+# Bank Customer Churn Predictor
 
 ## Description
 The premise of this project is built upon the notion that at banks, retaining a customer is much easier and cost effective than actually acquiring a new one. Losing customers results in a higher churn rate for the company, and the goal of this project is to reduce that number. 

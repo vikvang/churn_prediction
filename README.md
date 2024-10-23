@@ -21,5 +21,5 @@ In order to this, we first downloaded this dataset. This project explores variou
 ## Usage
 
 
- Used this kaggle repository: [TODO insert link]
+[Used this kaggle repository](https://www.kaggle.com/datasets/mathchi/churn-for-bank-customers). 
 
